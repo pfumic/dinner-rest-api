@@ -1,7 +1,6 @@
 using BuberDinner.Application.Common.Interfaces.Authentication;
 using BuberDinner.Application.Common.Interfaces.Persistance;
 using BuberDinner.Application.Common.Interfaces.Services;
-using BuberDinner.Application.Services.Authentication;
 using BuberDinner.Infrastructure.Authentication;
 using BuberDinner.Infrastructure.Persistence;
 using BuberDinner.Infrastructure.Services;
@@ -22,7 +21,7 @@ public static class DependencyInjection
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
 
         services.AddScoped<IUserRepository, UserRepository>();
-        
+
         return services;
     }
 }
