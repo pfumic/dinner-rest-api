@@ -27,7 +27,6 @@ public sealed class MenuReview : AggregateRoot<MenuReviewId>
         DinnerId dinnerId)
         : base(menuReviewId)
     {
-
         Rating = rating;
         Comment = comment;
         HostId = hostId;

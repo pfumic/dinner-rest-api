@@ -27,14 +27,14 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
             return await next();
         }
 
-        var validatonResult = await _validator.ValidateAsync(request, cancellationToken);
+        var validationResult = await _validator.ValidateAsync(request, cancellationToken);
 
-        if (validatonResult.IsValid)
+        if (validationResult.IsValid)
         {
             return await next();
         }
 
-        var errors = validatonResult.Errors
+        var errors = validationResult.Errors
             .ConvertAll(validationFailure => Error.Validation(
                 validationFailure.PropertyName,
                 validationFailure.ErrorMessage));

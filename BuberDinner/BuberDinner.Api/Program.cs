@@ -8,7 +8,6 @@ var builder = WebApplication.CreateBuilder(args);
         .AddApplication()
         .AddInfrastructure(builder.Configuration);
 
-
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
 }
@@ -28,5 +27,3 @@ var app = builder.Build();
     app.MapControllers();
     app.Run();
 }
-
-
