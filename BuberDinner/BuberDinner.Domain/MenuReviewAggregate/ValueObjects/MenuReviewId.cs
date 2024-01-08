@@ -5,9 +5,9 @@ using BuberDinner.Domain.MenuAggregate.ValueObjects;
 
 namespace BuberDinner.Domain.MenuReviewAggregate.ValueObjects;
 
-public sealed class MenuReviewId : ValueObject
+public sealed class MenuReviewId : AggregateRootId<string>
 {
-    public string Value { get; }
+    public override string Value { get; protected set; }
 
     private MenuReviewId(MenuId menuId, DinnerId dinnerId, GuestId guestId)
     {

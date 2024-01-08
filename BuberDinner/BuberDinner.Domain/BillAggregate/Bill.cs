@@ -7,7 +7,7 @@ using Price = BuberDinner.Domain.DinnerAggregate.ValueObjects.Price;
 
 namespace BuberDinner.Domain.BillAggregateAggregate;
 
-public sealed class Bill : AggregateRoot<BillId>
+public sealed class Bill : AggregateRoot<BillId, string>
 {
     public DinnerId DinnerId { get; }
     public GuestId GuestId { get; }

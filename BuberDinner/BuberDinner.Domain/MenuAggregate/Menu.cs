@@ -3,6 +3,7 @@ using BuberDinner.Domain.Common.ValueObjects;
 using BuberDinner.Domain.DinnerAggregate.ValueObjects;
 using BuberDinner.Domain.HostAggregate.ValueObjects;
 using BuberDinner.Domain.MenuAggregate.Entities;
+using BuberDinner.Domain.MenuAggregate.Events;
 using BuberDinner.Domain.MenuAggregate.ValueObjects;
 using BuberDinner.Domain.MenuReviewAggregate.ValueObjects;
 
@@ -49,13 +50,17 @@ public sealed class Menu : AggregateRoot<MenuId, Guid>
         List<MenuSection>? sections = null)
     {
         // TODO: enforce invariants
-        return new Menu(
+        var menu = new Menu(
             MenuId.CreateUnique(),
             hostId,
             name,
             description,
             AverageRating.CreateNew(),
             sections ?? new());
+
+        menu.AddDomainEvent(new MenuCreated(menu));
+        
+        return menu;
     }
 
     // Done this way because EF uses reflections to build a db and it needs parameterless constructor

@@ -8,7 +8,7 @@ using Price = BuberDinner.Domain.DinnerAggregate.ValueObjects.Price;
 
 namespace BuberDinner.Domain.DinnerAggregate;
 
-public sealed class Dinner : AggregateRoot<DinnerId>
+public sealed class Dinner : AggregateRoot<DinnerId, Guid>
 {
     private readonly List<Reservation> _reservations = new();
 

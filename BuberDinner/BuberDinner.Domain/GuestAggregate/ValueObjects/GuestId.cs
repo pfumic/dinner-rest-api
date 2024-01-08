@@ -3,9 +3,9 @@ using BuberDinner.Domain.UserAggregate.ValueObjects;
 
 namespace BuberDinner.Domain.GuestAggregate.ValueObjects;
 
-public class GuestId : ValueObject
+public class GuestId : AggregateRootId<string>
 {
-    public string Value { get; }
+    public override string Value { get; protected set; }
 
     public GuestId(UserId userId)
     {
